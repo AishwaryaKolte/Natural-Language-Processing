@@ -24,12 +24,10 @@ library(dplyr)
 library(stringi) # for advanced string manipulation 
 
 # The stri_trans_general function from the stringi package is used here to convert non-Latin characters to their closest Latin equivalents.
-flipkart <- flipkart %>%
-  mutate(Summary = stri_trans_general(Summary, "Latin-ASCII")) 
+flipkart <- flipkart %>% mutate(Summary = stri_trans_general(Summary, "Latin-ASCII")) 
 
 # Removing the punctuations
-flipkart <- flipkart %>%
-  mutate(Summary = gsub("[[:punct:]]", "", Summary))
+flipkart <- flipkart %>% mutate(Summary = gsub("[[:punct:]]", "", Summary))
 View(flipkart)
 
 #Removing characters with undefined names
@@ -39,35 +37,20 @@ library(dplyr)
 library(stringr)
 
 #This gsub function removes all characters that are not letters, digits, spaces, or forward slashes.
-flipkart <- flipkart %>%
-  mutate(
-    ProductName = gsub("[^a-zA-Z0-9/ ]", "", ProductName))
+flipkart <- flipkart %>% mutate(ProductName = gsub("[^a-zA-Z0-9/ ]", "", ProductName))
 
 #The 'str_squish' function collapses multiple adjacent white spaces into a single space.
-flipkart <- flipkart %>%
-  mutate(
-    ProductName = str_squish(ProductName))
-
+flipkart <- flipkart %>% mutate(ProductName = str_squish(ProductName))
 View(flipkart)
 
 # The gsub function replaces characters with undefined names in the specified columns with a space.
-flipkart <- flipkart %>%
-  mutate(
-    Review = gsub('[^a-zA-Z0-9(/)]', ' ', Review),
-    Summary = gsub('[^a-zA-Z0-9(/)]', ' ', Summary))
+flipkart <- flipkart %>% mutate(Review = gsub('[^a-zA-Z0-9(/)]', ' ', Review), Summary = gsub('[^a-zA-Z0-9(/)]', ' ', Summary))
 
 # The 'str_squish' function collapses multiple adjacent white spaces into a single space.
-flipkart <- flipkart %>%
-  mutate(
-    Summary = str_squish(Summary),
-    Review = str_squish(Review))
+flipkart <- flipkart %>% mutate(Summary = str_squish(Summary), Review = str_squish(Review))
 
 # Converting the summary and review columns into lower case.
-flipkart <- flipkart %>%
-  mutate(
-    Summary = tolower(Summary),
-    Review = tolower(Review))
-
+flipkart <- flipkart %>% mutate(Summary = tolower(Summary), Review = tolower(Review))
 View(flipkart)
 
 # Saving the data frame flipkart to a CSV file
