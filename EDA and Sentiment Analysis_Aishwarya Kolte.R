@@ -23,6 +23,8 @@ print(rate_counts)
 
 #### Sentiment Mapping ########
 #creating new column 'Sentiment' based on the mapping of the ratings
+#If 'Ratings' given are 4 or 5, it identifies as 'Positive'; if 1 or 2, it identifies as 'Negative',
+#if 3 , it identifies as 'Neutral'.
 clean_flipkart_Products <- clean_flipkart_Products %>%
   mutate(Sentiment_Ratings = case_when(
     Rate %in% c(4, 5) ~ 'positive',
@@ -46,7 +48,7 @@ ggplot(clean_flipkart_Products, aes(x = Sentiment_Ratings, fill = Sentiment_Rati
   scale_fill_manual(values = colors) +  # Setting custom colors
   theme_minimal() +  # Using a minimal theme
   theme(
-    text = element_text(family = 'Arial'),  # Seting font family
+    text = element_text(family = 'Arial'),  # Setting font 
     plot.title = element_text(hjust = 0.5),  # Centering plot title
     legend.position = 'none')  # Remove legend
 
