@@ -64,8 +64,8 @@ sentiment_scores <- sentimentr::sentiment(clean_flipkart_Products$Summary)
 #Viewing the result
 print(sentiment_scores)
 
-polarity_score <- mean(sentiment_scores$sentiment)
-polarity_score
+avg_polarity_score <- mean(sentiment_scores$sentiment)
+avg_polarity_score
 
 library(dplyr)
 Sentiment_analysis <- sentiment_scores %>% group_by(element_id) %>% 
