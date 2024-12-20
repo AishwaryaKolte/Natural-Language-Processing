@@ -3,14 +3,14 @@ This repository contains the analysis of Flipkart product reviews aimed at extra
 
 ### Technologies Used
 #### R Libraries:
-tidyverse
-ggplot2
-tm
-sentimentr
-wordcloud2
+- tidyverse
+- ggplot2
+- tm
+- sentimentr
+- wordcloud2
 
 #### Visualizations:
-Pie charts
-Heatmaps
-Word clouds
-Scatter plots
+- Pie charts
+- Heatmaps
+- Word clouds
+- Scatter plots
